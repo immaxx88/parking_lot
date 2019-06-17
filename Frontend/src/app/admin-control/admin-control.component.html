@@ -1,0 +1,20 @@
+<form #initialize="ngForm">
+<div class="container">
+  <h1>Welcome to the Admin Control Panel</h1>
+  <fieldset>
+    Grid No. <input type="text" class="form-control" #gridno ="ngModel" name="gridno" [(ngModel)]="model.gridno" placeholder = "Enter grid value" id="gridno" required>
+    <br>
+    <button class="btn btn-success" (click)="onSubmit(initialize)">Initialize</button>
+  </fieldset>
+  <br>
+  <fieldset>
+      <button class="btn btn-success" (click)="onGridCall()">Live Parking</button>
+    </fieldset>
+</div>
+</form>
+<div class="error" *ngIf="showErrorMessage"> 
+   Error in Initialization
+</div>
+<div class="error" *ngIf="getGridError"> 
+    Error In Grid 
+ </div>

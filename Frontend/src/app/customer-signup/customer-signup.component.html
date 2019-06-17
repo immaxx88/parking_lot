@@ -1,0 +1,28 @@
+<h3>Customer SignUp</h3>
+<form #signUpForm="ngForm" (ngSubmit) = "onSubmit(signUpForm)"> 
+  <div class="container">
+  <!-- <br>
+  <br> -->
+  <fieldset class="form-group">
+  Name : <input type="text" class="form-control" #name = "ngModel"  [(ngModel)] = "userService.customer.name" placeholder="Full Name" name="name"  required>
+</fieldset>
+<fieldset class="form-group">
+  Username : <input type="text" class="form-control" #username = "ngModel"  [(ngModel)] = "userService.customer.username" placeholder="Username" name="username" required>
+</fieldset>
+<fieldset class="form-group">
+  Password : <input type="password" class="form-control" #password = "ngModel" [(ngModel)] = "userService.customer.password" placeholder="Password" name="password"  required>
+</fieldset> 
+  <button class="btn btn-success" value="ngSubmit">SignUp</button>
+</div>
+</form>
+<div ng-messages="signUpForm.name.$error">
+
+</div>
+
+<div class ="sucess" *ngIf= "showSuccessMessage">
+Saved Succesfully
+</div>
+
+<div  class="error" *ngIf="serverErrorMessage">
+An Error has occurred
+</div>

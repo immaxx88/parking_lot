@@ -1,0 +1,33 @@
+<form #signUpForm="ngForm" > 
+<div class="container">
+  <h3>Enter the Car Details</h3>
+<fieldset class="form-group">
+  CustomerID : <input type="text" class="form-control" placeholder="Customer ID"  readonly     #custid = "ngModel"  name="custid"   [(ngModel)] = "userService.customersData.custid"  required>
+</fieldset>
+<fieldset class="form-group">
+  Slot : <input type="text" class="form-control" placeholder="Slot No."               #slot = "ngModel"    name="slot" [(ngModel)] = "userService.customersData.slot" required>
+</fieldset>
+<fieldset class="form-group">
+  Model : <input type="text" class="form-control" placeholder="Car's Model Name"      #model ="ngModel"    name="modelno" [(ngModel)] = "userService.customersData.modelno"  required>
+</fieldset>
+<fieldset class="form-group">
+  Registration No. : <input type="text" class="form-control" placeholder="MH-99-1111" #regisno = "ngModel" name="regisno"  [(ngModel)] = "userService.customersData.regisno" required>
+</fieldset>
+<fieldset class="form-group">
+  Color : <input type="text" class="form-control" placeholder="Car's Color"           #color = "ngModel"   name="color" [(ngModel)] = "userService.customersData.color" required>
+</fieldset>
+  <button class="btn btn-success"  value="ngSubmit" (click)="onSubmit(signUpForm)">Park</button>
+  <br>
+  Parked Cars:
+  <br>
+   <button class="btn btn-primary" value="ngSubmit" (click)="parkCarDetails(signUpForm)" >Parked Car Details</button>
+</div>
+</form>
+
+<div class ="sucess" *ngIf= "showSuccessMessage">
+    Saved Succesfully
+    </div>
+    
+    <div  class="error" *ngIf="serverErrorMessage">
+    An Error has occurred
+    </div>

@@ -1,0 +1,17 @@
+<form #signInForm="ngForm" (ngSubmit) = "onSubmit(signInForm)"> 
+<div class="container">
+    <h3>Customer Login</h3>
+    <fieldset class="form-group"> 
+    Username:<input type="text" class="form-control" #username="ngModel" name= "username" [(ngModel)] ="model.username" placeholder="Username" id="username">
+  </fieldset>
+  <fieldset class="form-group"> 
+    Password:<input type="password" class="form-control" #password="ngModel" name= "password" [(ngModel)] ="model.password"  placeholder="Password" id ="password">
+  </fieldset>
+    <button class="btn btn-primary" value="ngSubmit">Login</button>
+    <h5>Not a user yet?? Click on SignUp</h5>
+    <button class= "btn btn-success" routerLink="/customersignup">SignUp</button>
+  </div>
+</form>
+<div class="alert" *ngIf="serverErrorMessage">
+  {{serverErrorMessage}}
+</div>
